@@ -26,10 +26,11 @@ dircontentsrecursive := function(dir)
 end;
 
 dir := [DirectoriesPackageLibrary( "profiling", "tst/tstall" )[1]];
-if StartsWith(GAPInfo.Version, "4.8.") then
-    Add(dir, DirectoriesPackageLibrary( "profiling", "tst/tst4.8" )[1] );
-else
+# KernelDebug was not added until 4.9
+if IsBound(GAPInfo.KernelInfo.KernelDebug) then
     Add(dir, DirectoriesPackageLibrary( "profiling", "tst/tst4.9" )[1] );
+else
+    Add(dir, DirectoriesPackageLibrary( "profiling", "tst/tst4.8" )[1] );
 fi;
 
 files := Concatenation(List(dir, dircontentsrecursive));
