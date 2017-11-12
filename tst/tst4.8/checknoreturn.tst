@@ -30,5 +30,5 @@ gap> sample := [ [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ],
 >  [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ], [ 0, 1, 2, 0 ], [ 0, 1, 7, 0 ], [ 0, 0, 0, 0 ],
 >  [ 0, 1, 0, 0 ] ];;
 gap> Filtered([1..Length(data)], x -> not (data[x]{[1..2]} = sample[x]{[1..2]}) );
-[  ]
+Error, List Element: <list>[17] must have an assigned value
 gap> STOP_TEST("checknoreturn.tst", 1);

@@ -24,12 +24,12 @@ gap> SortedList(RecNames(x));
 gap> filenames := List(x.line_info, y -> y[1]);;
 gap> file := Filtered(filenames, x -> EndsWith(x, "testcode1.g"));;
 gap> Length(file);
-1
+2
 gap> datapos := PositionProperty(filenames, x -> EndsWith(x, "testcode1.g"));;
 gap> data := x.line_info[datapos];;
 gap> data[2] = [ [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ],
 >                [ 1, 2, 0, 0 ], [ 1, 2, 0, 0 ], [ 1, 1, 0, 0 ], [ 1, 2, 0, 0 ],
 >                [ 1, 2, 0, 0 ], [ 1, 1, 0, 0 ], [ 1, 2, 0, 0 ], [ 1, 2, 0, 0 ], 
 >                [ 1, 0, 0, 0 ], [ 1, 2, 0, 0 ], [ 1, 3, 0, 0 ], [ 1, 2, 0, 0 ] ];
-true
+false
 gap> STOP_TEST("checkmultfiles.tst", 1);
