@@ -459,7 +459,7 @@ InstallGlobalFunction("OutputAnnotatedCodeCoverageFiles",function(arg)
       PrintTo(outstream, "<thead>");
       PrintTo(outstream, "<tr>");
       if hasTiming then
-        PrintTo(outstream, "<th>Line</th><th>Execs</th><th>Time</th><th>Time+Childs</th><th>Code</th><th>Called Functions</th><th>Called From</th>\n");
+        PrintTo(outstream, "<th>Line</th><th>Execs</th><th>Time</th><th>/Exec</th><th>Time+Childs</th><th>/Exec</th><th>Code</th><th>Called Functions</th><th>Called From</th>\n");
       else
         PrintTo(outstream, "<th>Line</th><th>Code</th>\n");
       fi;
@@ -484,7 +484,7 @@ InstallGlobalFunction("OutputAnnotatedCodeCoverageFiles",function(arg)
         PrintTo(outstream, "<td><a name=\"line",i,"\"></a>",i,"</td>");
 
         if hasTiming then
-            time := "<td></td><td></td><td></td>";
+            time := "<td></td><td></td><td></td><td></td><td></td>";
             if IsBound(coverage[i]) and coverage[i][2] >= 1 then
               calls := coverage[i][2];
               if data.info.is_cover and calls > 1 then
@@ -496,11 +496,15 @@ InstallGlobalFunction("OutputAnnotatedCodeCoverageFiles",function(arg)
                                       "</td><td>",
                                       stringWithSeparators(coverage[i][3]),
                                       "</td><td>",
+                                      stringWithSeparators(Int(Float(coverage[i][3]) / calls)),
+                                      "</td><td>",
                                       stringWithSeparators(coverage[i][4]+coverage[i][3]),
+                                      "</td><td>",
+                                      stringWithSeparators(Int(Float(coverage[i][4]+coverage[i][3]) / calls)),
                                       "</td>");
               else
                 time := Concatenation("<td>",stringWithSeparators(calls),
-                                      "</td><td></td><td></td>");
+                                      "</td><td></td><td></td><td></td><td></td>");
               fi;
             fi;
 
