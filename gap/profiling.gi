@@ -285,7 +285,8 @@ end);
 # The CSS we want to inject into every page
 _prof_CSS_std :=
 """
-table { border-collapse: collapse }
+table { border-collapse: collapse; table-layout: fixed; width: 100%; word-wrap: break-word; }
+th:nth-child(7)  { width: 50%; }
 tr:nth-child(odd)  { background-color: #EEE; }
 tr:nth-child(even)  { background-color: #FFF; }
 tr:nth-child(odd).exec  { background-color: #3E3; }
