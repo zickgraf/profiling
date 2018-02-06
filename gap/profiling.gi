@@ -310,6 +310,8 @@ td:nth-child(1) { text-align: right; }
 td:nth-child(2) { text-align: right; }
 td:nth-child(3) { text-align: right; }
 td:nth-child(4) { text-align: right; }
+td:nth-child(5) { text-align: right; }
+td:nth-child(6) { text-align: right; }
 """;
 
 _prof_CSS_files_withoutTiming := 
