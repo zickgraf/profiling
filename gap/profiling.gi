@@ -973,7 +973,9 @@ InstallGlobalFunction("LineByLineProfileFunction",
     elif __profiling_pkg_temp_wsl_check() then
       Exec(Concatenation("explorer.exe \"$(wslpath -a -w \"",Filename(dir, "output/index.html"), "\")\""));
     else
-      Exec(Concatenation("xdg-open ",Filename(dir, "output/index.html")));
+      Exec(Concatenation("chmod a+rx ",Filename(dir, "")));
+      Exec(Concatenation("chmod a+rx ",Filename(dir, "output/")));
+      Exec(Concatenation("firefox file://",Filename(dir, "output/index.html")));
     fi;
   end);
 
